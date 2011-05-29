@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<uc_curriculum>
+<uc_class>
+    <full_name>American Government</full_name>
+    <transcript_name>AMERGOVTP</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Modern World History</full_name>
+    <transcript_name>MODWLDHIST</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>U.S. History</full_name>
+    <transcript_name>USHISTP</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>U.S. History (AP)</full_name>
+    <transcript_name>U.S.HISTAP</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>World History/Geography 9</full_name>
+    <transcript_name>WLDHISTAI/S,WLDHS/GEOP,WorldHistory</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP English 12</full_name>
+    <transcript_name>A/PEng12</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 10</full_name>
+    <transcript_name>ENGLISH10,ENGLISH10P</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 10 (H)</full_name>
+    <transcript_name>HONENG10</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 11</full_name>
+    <transcript_name>ENG11P</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>English 11 (AP)</full_name>
+    <transcript_name>A/PENG11P,A/PENG11P,A/PENG11P</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 12</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 9</full_name>
+    <transcript_name>ENGLISH9,ENGLISH9P</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 9 (H)</full_name>
+    <transcript_name>HONENG9P</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>A.P. Calculus</full_name>
+    <transcript_name>A/PCalculus</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra I</full_name>
+    <transcript_name>ALGEBRAI,ALGEBRAI,ALGEBRAI,ALGEBRAIP</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra II</full_name>
+    <transcript_name>ALGEBRAII,ALGEBRAIIP</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra II/Trigonometry (H)</full_name>
+    <transcript_name>HALGII/TRIG,HALGII/TRIG</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Honors Geometry</full_name>
+    <transcript_name>HGEOMETRY,HONGEOMP</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Math B/ Part 1/Algebra I/</full_name>
+    <transcript_name>MathBPrt1</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Math C, Part 2, Algebra 1</full_name>
+    <transcript_name>MathC/Algpt2</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Plane Geometry I</full_name>
+    <transcript_name>PLGEOMP</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Pre-Calculus</full_name>
+    <transcript_name>PRE-CALCULUS</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Statistics</full_name>
+    <transcript_name>STATISTICS</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Trigonometry</full_name>
+    <transcript_name>TRIG</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>A.P. Biology</full_name>
+    <transcript_name>A/PBiology</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Advanced Physics</full_name>
+    <transcript_name>AdvPhysics</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Anatomy &amp; Physiology</full_name>
+    <transcript_name>ANTMY/PHYSP</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Biology</full_name>
+    <transcript_name>BIOLOGY,BIOLOGYP</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Chemistry</full_name>
+    <transcript_name>CHEMISTRY,CHEMISTRYP</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Physics</full_name>
+    <transcript_name>PHYSICS</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>French I</full_name>
+    <transcript_name>FRENCHI,FRENCHIP</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>French II</full_name>
+    <transcript_name>FRENCHII,FRENCHIIP</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>French III</full_name>
+    <transcript_name>FRENCHIII,FRENCHIIIP</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>French IV (AP)</full_name>
+    <transcript_name>A/PFREN4P</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>French V (AP)</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Spanish I</full_name>
+    <transcript_name>SPANISHI,SPANISHI,SPANISHIP</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Spanish II</full_name>
+    <transcript_name>SPANISHII,SPANISHIIP</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Spanish III</full_name>
+    <transcript_name>SPANISHIII,SPANISHIIIP</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Spanish IV (AP)</full_name>
+    <transcript_name>A/PSPAN4P</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Spanish V (AP)</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Advanced Art</full_name>
+    <transcript_name>ADVART(H)</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Art I</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Ceramics</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Color/Design</full_name>
+    <transcript_name>COLOR/DESIGN</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Drama</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Drama II</full_name>
+    <transcript_name>DRAMAII</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Drawing</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Graphic Communication Arts 1</full_name>
+    <transcript_name>GraphCom1</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Jazz Band</full_name>
+    <transcript_name>JAZZBAND</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Photography I</full_name>
+    <transcript_name>PHOTOIP</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Photography II</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Symphonic Band</full_name>
+    <transcript_name>SYMBDHSP</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Video Production I</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>American Film Studies</full_name>
+    <transcript_name>AmericanFilmStudies</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Astronomy</full_name>
+    <transcript_name>ASTRONOMY</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Economics</full_name>
+    <transcript_name>ECONOMICS</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Foreign Film Studies</full_name>
+    <transcript_name>ForeignFilmStudies</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Geology</full_name>
+    <transcript_name>GEOLOGY</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Global Studies</full_name>
+    <transcript_name>GlobalStudies</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Marine Biology</full_name>
+    <transcript_name>MARINEBIOL</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Media Journalism</full_name>
+    <transcript_name>MEDJOU/YRBK,MEDJRN/NEWS</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Philosophy</full_name>
+    <transcript_name></transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Psychology</full_name>
+    <transcript_name>PSYCHOLOGYP</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Science Fiction Literature</full_name>
+    <transcript_name>SCIFICTLIT</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+
+</uc_curriculum>

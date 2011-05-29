@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<uc_curriculum>
+<uc_class>
+    <full_name>American Government</full_name>
+    <transcript_name>AmericanGovt</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP US History</full_name>
+    <transcript_name>APUSHistory</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>U.S. History</full_name>
+    <transcript_name>USHistory</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>World History/Geography</full_name>
+    <transcript_name>WldHis/Geog</transcript_name>
+    <a2g_category>0</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP English Language</full_name>
+    <transcript_name>APEnglishLang</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP English Literature</full_name>
+    <transcript_name>A/PEng12,APEnglishLit</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 10</full_name>
+    <transcript_name>English10</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 11</full_name>
+    <transcript_name>English11</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 12</full_name>
+    <transcript_name>English12</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>English 9</full_name>
+    <transcript_name>English9</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Honors English 10</full_name>
+    <transcript_name>HonEnglish10</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Honors English 9</full_name>
+    <transcript_name>HonEnglish9</transcript_name>
+    <a2g_category>1</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra 1</full_name>
+    <transcript_name>Algebra1</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra 1A</full_name>
+    <transcript_name>Algebra1A</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra 1B</full_name>
+    <transcript_name>Algebra1B</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra 2</full_name>
+    <transcript_name>Algebra2</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Algebra 2B/Trig</full_name>
+    <transcript_name>Alg2B/Trig</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP Calculus A</full_name>
+    <transcript_name>APCalculusA</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Honors Alg 2/Trig</full_name>
+    <transcript_name>HonAlg2/Trig</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Honors Geometry</full_name>
+    <transcript_name>HonorsGeometry</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Plane Geometry</full_name>
+    <transcript_name>PLGEOMP,PlaneGeometry</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Pre-Calculus</full_name>
+    <transcript_name>Pre-Calculus</transcript_name>
+    <a2g_category>2</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Advanced Chemistry</full_name>
+    <transcript_name>AdvChemistry</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Advanced Physics</full_name>
+    <transcript_name>AdvPhysics</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Anatomy/Physiology</full_name>
+    <transcript_name>Anatmy/Physio</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP Biology</full_name>
+    <transcript_name>APBiology</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP Chemistry</full_name>
+    <transcript_name>APChemistry</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Biology</full_name>
+    <transcript_name>Biology</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Chemistry</full_name>
+    <transcript_name>Chemistry</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Physics</full_name>
+    <transcript_name>Physics</transcript_name>
+    <a2g_category>3</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP French Language</full_name>
+    <transcript_name>APFrenchLang.</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>AP Spanish Language</full_name>
+    <transcript_name>APSpanishLang</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>French 1</full_name>
+    <transcript_name>French1</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>French 2</full_name>
+    <transcript_name>French2</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>French 3</full_name>
+    <transcript_name>French3</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>French 4</full_name>
+    <transcript_name>French4</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>1</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Spanish 1</full_name>
+    <transcript_name>Spanish1</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Spanish 2</full_name>
+    <transcript_name>Spanish2</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Spanish 3</full_name>
+    <transcript_name>Spanish3</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Spanish 4</full_name>
+    <transcript_name>Spanish4</transcript_name>
+    <a2g_category>4</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Art 1-2</full_name>
+    <transcript_name>Art1-2</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Drama 102</full_name>
+    <transcript_name>Drama1-2</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Jazz Band</full_name>
+    <transcript_name>JazzBandF,JazzBandS</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Photography 1-2</full_name>
+    <transcript_name>Photo1-2</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>ROP Graphic Com Arts</full_name>
+    <transcript_name>ROPGrComArts</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>ROP Video Production 1</full_name>
+    <transcript_name>ROPVideoPro1</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+None
+<uc_class>
+    <full_name>Symphonic Band</full_name>
+    <transcript_name>SymphonicBndF,SymphonicBndS</transcript_name>
+    <a2g_category>5</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>0</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>9th Grade Science</full_name>
+    <transcript_name>9thGrScience,Hon9thGrSci</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Advanced Art</full_name>
+    <transcript_name>AdvArt</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>American Film Literature</full_name>
+    <transcript_name>AmFilmLit</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Ceramics</full_name>
+    <transcript_name>Ceramics</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Drawing 1</full_name>
+    <transcript_name>Drawing1</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Economics</full_name>
+    <transcript_name>Economics</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Foreign Film Literature</full_name>
+    <transcript_name>FrnFilmLit</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Global Studies</full_name>
+    <transcript_name>GlobalStudies</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Marine Biology</full_name>
+    <transcript_name>MarineBiology</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Media/Jrn Yearbook</full_name>
+    <transcript_name>Med/JrnYrbF,Med/JrnYrbS</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Psychology</full_name>
+    <transcript_name>Psychology</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Science Fiction Literature</full_name>
+    <transcript_name>SciFictionLit</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+<uc_class>
+    <full_name>Speech Debate</full_name>
+    <transcript_name>Speech/Debate</transcript_name>
+    <a2g_category>6</a2g_category>
+    <extra_point>0</extra_point>
+    <g_valid>1</g_valid>
+    <prerequisite>0</prerequisite>
+</uc_class>
+
+</uc_curriculum>

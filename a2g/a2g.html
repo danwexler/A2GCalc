@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>UC a-g GPA Calculator</title>
+<script language="JavaScript" src="a2g.js"></script>
+</head>
+<body onLoad="init();">
+<table cellspacing=5>
+  <tr>
+    <td>Name:</td>
+    <td colspan=4><input type="text" name="student_name" size="40"></input></td>
+    <td><input type="button" id="load_transcript" value="Open" onClick="load_transcript();"</input></td>
+    <td><input type="button" id="save_transcript" value="Save" onClick="save_transcript();"</input></td>
+  </tr>
+  <tr>
+    <td align=right><b>GPA:</b></td><td id="gpa" bgcolor="#CCCCCC" width=4 align=center>0</td>
+    <td width=50>&nbsp;</td>
+    <td align=right><b>A-G:</b></td><td id="a2g" style="color:red">Incomplete: Missing classes</td>
+  </tr>
+</table>
+<script>display_transcript();</script>
+<table>
+  <tr>
+    <td><input type="button" id="add_class" value="Add Class"
+      onClick="add_class();"></input></td>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+      <select id="classname">
+      </select>
+    </td>
+    <td>
+      <input type=radio id="grade" name="grade" value="A" checked>A</input>
+      <input type=radio id="grade" name="grade" value="B">B</input>
+      <input type=radio id="grade" name="grade" value="C">C</input>
+      <input type=radio id="grade" name="grade" value="D">D</input>
+      <input type=radio id="grade" name="grade" value="F">F</input>
+      &nbsp;&nbsp;
+    </td>
+    <td>
+      <select id="term">
+        <option>Term 1</option>
+        <option>Term 2</option>
+        <option>Term 3</option>
+        <option>Term 4</option>
+      </select>
+    </td>
+    <td>
+      <select id="year">
+        <option>2011</option>
+        <option>2010</option>
+        <option>2009</option>
+        <option>2008</option>
+        <option>2007</option>
+        <option>2006</option>
+        <option>2005</option>
+        <option>2004</option>
+        <option>2003</option>
+      </select>
+    </td>
+    <td>
+      <select id="school_name" onChange="update_class_selector();">
+        <option>Tahoe Truckee HS</option>
+        <option>North Tahoe HS</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan=4 id="class_error" style="color:red">&nbsp;No error</td></font>
+  </tr>
+</table>
+</body>
+</html>
