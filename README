@@ -1,0 +1,17 @@
+GPUCalc
+-------
+
+A GPU calculator for UC/CSU a-g requirements.
+
+An AJAX-based web page allows students to enter their UC-approved courses,
+visualize the results, and verify that they fulfill the requirements for
+admission.  The GPU is properly computed using extra points for honors/AP
+courses, adjustments for repeated courses, and all the other factors that
+are described on the official UC Doorways website.
+
+Data for each school's approved courselist is scraped from the official
+UC Doorways website using the scrape_a2g Python script to extrac the
+course names and attributes.
+
+
+Copyright (c) 2011 by Daniel Wexler -- All Rights Reserved
