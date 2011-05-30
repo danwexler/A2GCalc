@@ -1,30 +1,42 @@
 <html>
 <head>
 <title>UC a-g GPA Calculator</title>
+<style><!-- @IMPORT url("a2g.css"); --></style>
 <script language="JavaScript" src="a2g.js"></script>
 </head>
-<body onLoad="init();">
+<body onLoad="GPACalc.init();">
 <table cellspacing=5>
   <tr>
     <td>Name:</td>
     <td colspan=4><input type="text" name="student_name" size="40"></input></td>
+    <td>Freshman year:
+      <select id="year">
+        <option>2011</option>
+        <option>2010</option>
+        <option>2009</option>
+        <option selected>2008</option>
+        <option>2007</option>
+        <option>2006</option>
+        <option>2005</option>
+        <option>2004</option>
+        <option>2003</option>
+      </select>
+    </td>
     <td><input type="button" id="load_transcript" value="Open" onClick="load_transcript();"</input></td>
     <td><input type="button" id="save_transcript" value="Save" onClick="save_transcript();"</input></td>
   </tr>
   <tr>
-    <td align=right><b>GPA:</b></td><td id="gpa" bgcolor="#CCCCCC" width=4 align=center>0</td>
-    <td width=50>&nbsp;</td>
-    <td align=right><b>A-G:</b></td><td id="a2g" style="color:red">Incomplete: Missing classes</td>
+    <td align=right><b>GPA:</b></td><td id="gpa" bgcolor="#CCCCCC" width=4>0</td>
   </tr>
 </table>
-<script>display_transcript();</script>
+<script>GPACalc.display_transcript();</script>
 <table>
   <tr>
     <td><input type="button" id="add_class" value="Add Class"
-      onClick="add_class();"></input></td>
+      onClick="GPACalc.add_course();"></input></td>
     <td>&nbsp;&nbsp;</td>
     <td>
-      <select id="classname">
+      <select id="course_name">
       </select>
     </td>
     <td>
@@ -57,7 +69,7 @@
       </select>
     </td>
     <td>
-      <select id="school_name" onChange="update_class_selector();">
+      <select id="school_name" onChange="GPACalc.update_curriculum();">
         <option>Tahoe Truckee HS</option>
         <option>North Tahoe HS</option>
       </select>
@@ -66,8 +78,17 @@
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan=4 id="class_error" style="color:red">&nbsp;No error</td></font>
+    <td colspan=4 id="class_error" style="color:red">&nbsp;</td></font>
   </tr>
 </table>
+<table>
+  <tr><td><strong>Key:</strong></td><tr>
+  <tr><td></td><td class="light_red_background">Incomplete a-g subject requirement</td></tr>
+  <tr><td></td><td class="light_green_background">Completed a-g subject requirement</td></tr>
+  <tr><td></td><td style="color:#00A000">Honors or AP course with C or better grade earns extra GPA point.</td></tr>
+  <tr><td></td><td style="color:#A00000">Course with D or lower grade does not qualify for a-g requirement.</td></tr>
+  <tr><td></td><td style="color:#A0A000">Repeated course earns grade of last taken course.</td></tr>
+  <tr><td></td><td style="color:#00A0A0">Linked course earns grade of final course in series.</td></tr>  
+  </table>
 </body>
 </html>
