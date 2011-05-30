@@ -3,4 +3,11 @@
 .light_red_background { background-color:#FEEEEE; }
 .dark_red_background { background-color:#EDDDDD; }
 .light_green_background { background-color:#EEFEEE; }
-.dark_green_background { background-color:#DDEDDD; } 
+.dark_green_background { background-color:#DDEDDD; }
+.a2g_category_heading { background-color:#BBBB99; }
+
+.extra_point_course_text { color:#00A000; }
+.failed_course_text { color:#A00000; }
+.ignored_course_text { color:#A0A000; }
+.linked_course_text { color:#00A0A0; }
+.standard_course_text { color:#000000; }

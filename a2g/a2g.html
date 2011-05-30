@@ -10,7 +10,7 @@
     <td>Name:</td>
     <td colspan=4><input type="text" name="student_name" size="40"></input></td>
     <td>Freshman year:
-      <select id="year">
+      <select id="freshman_year" onChange="GPACalc.update_freshman_year();">
         <option>2011</option>
         <option>2010</option>
         <option>2009</option>
@@ -82,13 +82,12 @@
   </tr>
 </table>
 <table>
-  <tr><td><strong>Key:</strong></td><tr>
-  <tr><td></td><td class="light_red_background">Incomplete a-g subject requirement</td></tr>
+  <tr><td><strong>Key:&nbsp;&nbsp;</strong></td><td class="light_red_background">Incomplete a-g subject requirement</td></tr>
   <tr><td></td><td class="light_green_background">Completed a-g subject requirement</td></tr>
-  <tr><td></td><td style="color:#00A000">Honors or AP course with C or better grade earns extra GPA point.</td></tr>
-  <tr><td></td><td style="color:#A00000">Course with D or lower grade does not qualify for a-g requirement.</td></tr>
-  <tr><td></td><td style="color:#A0A000">Repeated course earns grade of last taken course.</td></tr>
-  <tr><td></td><td style="color:#00A0A0">Linked course earns grade of final course in series.</td></tr>  
+  <tr><td></td><td class="extra_point_course_text">Honors or AP course with C or better grade earns extra GPA point.</td></tr>
+  <tr><td></td><td class="failed_course_text">Course with D or lower grade does not qualify for a-g requirement.</td></tr>
+  <tr><td></td><td class="ignored_course_text">Repeated or freshman course grade ignored.</td></tr>
+  <tr><td></td><td class="linked_course_text">Linked course earns grade of final course in series.</td></tr>  
   </table>
 </body>
 </html>

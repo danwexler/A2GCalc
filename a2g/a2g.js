@@ -1,24 +1,49 @@
 // Copyright (c) 2011 by Daniel Wexler -- All Rights Reserved
 // UC A-G GPA Calculator
+function load_xml_doc(dname) {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    xhttp = new XMLHttpRequest();
+  } else {
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.open("GET", dname, false);
+  xhttp.send();
+  return xhttp.responseXML;
+}
+
+function get_xnode_text(c, f) {
+  var i;
+  for (i = 0; i < c.childNodes.length; i++) {
+    if (c.childNodes[i].nodeName === f) {
+      return c.childNodes[i].textContent;
+    }
+  }
+  return 'unknown';
+}
+
 var A2GCourse = function (spec) {
   var that = {
     grade: spec.grade,
     term: spec.term,
     year: spec.year,
-    xnode: spec.xnode };
+    xnode: spec.xnode
+  };
   
   that.transcript_name = function () {
     return get_xnode_text(that.xnode, 'transcript_name');
   };
   
-  that.colored_name = function () {
-    var text = '<span style="color:';
-    if (that.extra_point()) {
-      text += '#00A000';
+  that.colored_name = function (freshman_year) {
+    var text = '<span class="';
+    if (that.year === freshman_year) {
+      text += 'ignored_course_text';
+    } else if (that.extra_point()) {
+      text += 'extra_point_course_text';
     } else if (that.grade === 'D' || that.grade === 'F') {
-      text += '#A00000';
+      text += 'failed_course_text';
     } else {
-      text += 'black';
+      text += 'standard_course_text';
     }
     text += '">' + that.transcript_name() + '</span>';
     return text;
@@ -42,35 +67,13 @@ var A2GCourse = function (spec) {
   
   that.g_valid = function () {
     if (get_xnode_text(that.xnode, 'g_valid') === '1') {
-        return true;
+      return true;
     }
     return false;
   };
     
   return that;
 };
-
-function load_xml_doc(dname) {
-  var xhttp;
-  if (window.XMLHttpRequest) {
-    xhttp = new XMLHttpRequest();
-  } else {
-    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xhttp.open("GET", dname, false);
-  xhttp.send();
-  return xhttp.responseXML;
-}
-
-function get_xnode_text(c, f) {
-  var i;
-  for (i = 0; i < c.childNodes.length; i++) {
-    if (c.childNodes[i].nodeName === f) {
-      return c.childNodes[i].textContent;
-    }
-  }
-  return 'unknown';
-}
 
 var A2GCourseList = function () {
   var that = {};
@@ -79,6 +82,7 @@ var A2GCourseList = function () {
                       "(d) Science", "(e) Language", "(f) Arts",
                       "(g) Elective", "Unused" ];
   var a2g_required = [4, 8, 6, 4, 4, 2, 2, 0];
+  var freshman_year;
   var cur_curriculum;
  
   //
@@ -103,12 +107,26 @@ var A2GCourseList = function () {
     }
     return -1;
   }
+  
+  function find_course_count(xnode) {
+    var i, j, n;
+    n = 0;
+    for (i = 0; i < a2g_course.length; ++i) {
+      for (j = 0; j < a2g_course[i].length; ++j) {
+        if (a2g_course[i][j] &&
+            xnode === a2g_course[i][j].xnode) {
+          n++;
+        }
+      }
+    }
+    return n;
+  }
         
   function display_a2g_course(c, r, course) {
     var name, grade, rem;
     var name_text, grade_text, rem_text;
     if (course) {
-      name_text = course.colored_name();
+      name_text = course.colored_name(freshman_year);
       grade_text = course.grade + '&nbsp;';
       rem_text = '<a href="javascript:GPACalc.remove_course('
         + c + ',' + r + ');"><img src="trashcan.gif" border=0></a>';
@@ -187,8 +205,9 @@ var A2GCourseList = function () {
   function recompute_gpa() {
     var c, r, gpaoutput, n = 0, gpa = 0;
     for (c = 0; c < a2g_course.length; ++c) {
-      for (r = 0; r < a2g_course[c].length; ++r, ++n) {
-        if (a2g_course[c][r]) {
+      for (r = 0; r < a2g_course[c].length; ++r) {
+        if (a2g_course[c][r] && a2g_course[c][r].year <= freshman_year) {
+          n++;
           gpa += letter_grade_to_value(a2g_course[c][r].grade);
           if (a2g_course[c][r].extra_point()) {
             gpa += 1;
@@ -196,7 +215,11 @@ var A2GCourseList = function () {
         }
       }
     }
-    gpa /= n;
+    if (n > 0) {
+      gpa /= n;
+    } else {
+      gpa = 0;
+    }
     gpaoutput = document.getElementById('gpa');
     gpa = Math.round(gpa * Math.pow(10, 2)) / Math.pow(10, 2);
     gpaoutput.innerHTML = gpa;
@@ -204,9 +227,9 @@ var A2GCourseList = function () {
   
   function display_category(c) {
     var i;
-    document.writeln("<table cellspacing=0>");
-    document.writeln("<tr bgcolor=#BBBB99><td colspan=3 align=center><b>" +
-                   a2g_category[c] + "</b></td></tr>");
+    document.writeln('<table cellspacing=0>');
+    document.writeln('<tr class="a2g_category_heading"><td colspan=3 align=center><b>' +
+                   a2g_category[c] + '</b></td></tr>');
     for (i = 0; i < a2g_category.length; ++i) {
       document.write('<tr class="');
       if (i < a2g_required[c]) {
@@ -228,12 +251,18 @@ var A2GCourseList = function () {
       document.writeln('<td width=16 id="r-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('</tr>');
     }
-    document.writeln("</table>");
+    document.writeln('</table>');
   }
 
   //
   // Public Interface
   //
+  
+  var update_freshman_year = function () {
+    freshman_year = document.getElementById('freshman_year').value;
+    
+  };
+  that.update_freshman_year = update_freshman_year;
   
   var update_curriculum = function () {
     var x, i;
@@ -249,6 +278,7 @@ var A2GCourseList = function () {
   that.update_curriculum = update_curriculum;
   
   that.init = function () {
+    update_freshman_year();
     update_curriculum();
   };
   
@@ -271,8 +301,13 @@ var A2GCourseList = function () {
                     course.term + " already exists.");
       return false;
     }
+    if (find_course_count(xnode) > 1) {
+      display_error("Course " + name + " already taken for a full year");
+      return false;
+    }
     r = -1;
-    if (course.grade == 'D' || course.grade == 'F') {
+    if (course.grade === 'D' || course.grade === 'F' ||
+        course.year <= freshman_year) {
       if (a2g_course[c].length > a2g_required[c]) {
         r = a2g_course[c].length;
       } else {
@@ -285,7 +320,7 @@ var A2GCourseList = function () {
           break;
         }
       }
-      if (i == a2g_course[c].length) {
+      if (i === a2g_course[c].length) {
         r = a2g_course[c].length;
       }
     }
