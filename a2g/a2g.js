@@ -114,10 +114,11 @@ var A2GCourseList = function () {
     return -1;
   }
   
-  function find_xnode_count(xnode) {
+  function find_xnode_pass_count(xnode) {
     var i, n = 0;
     for (i = 0; i < course_list.length; ++i) {
-      if (xnode === course_list[i].xnode) {
+      if (xnode === course_list[i].xnode &&
+          !(course_list[i].grade === 'D' || course_list[i].grade === 'F')) {
         n++;
       }
     }
@@ -395,7 +396,7 @@ var A2GCourseList = function () {
         }
       }
       document.write('" id="b-' + c + '-' + i + '">');
-      document.writeln('<td width=128 id="c-' + c + '-' + i + '">&nbsp;</td>');
+      document.writeln('<td width=120 id="c-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=48 id="t-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=16 id="g-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=16 id="r-' + c + '-' + i + '">&nbsp;</td>');
@@ -455,7 +456,7 @@ var A2GCourseList = function () {
                     course.term + ' of ' + course.year + '.');
       return false;
     }
-    if (find_xnode_count(xnode) > 1) {
+    if (find_xnode_pass_count(xnode) > 1) {
       display_error(name + ' already taken for a full year.');
       return false;
     }
