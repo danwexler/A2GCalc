@@ -1,7 +1,22 @@
 <html>
 <head>
 <title>UC a-g GPA Calculator</title>
-<style><!-- @IMPORT url("a2g.css"); --></style>
+<style type="text/css"><!--
+  /* alternating table background styles */ 
+  .light_gray_background { background-color:#EEEEEE; }
+  .dark_gray_background { background-color:#DDDDDD; }
+  .light_red_background { background-color:#FEEEEE; }
+  .dark_red_background { background-color:#EDDDDD; }
+  .light_green_background { background-color:#EEFEEE; }
+  .dark_green_background { background-color:#DDEDDD; }
+  .a2g_category_heading { background-color:#BBBB99; }
+  /* course text coloring affecting GPA calc */
+  .extra_point_course_text { color:#00A000; }
+  .failed_course_text { color:#A00000; }
+  .ignored_course_text { color:#A0A000; }
+  .linked_course_text { color:#00A0A0; }
+  .standard_course_text { color:#000000; }
+--></style>
 <script language="JavaScript" src="a2g.js"></script>
 </head>
 <body onLoad="GPACalc.init();">
@@ -29,7 +44,7 @@
     <td align=right><b>GPA:</b></td><td id="gpa" bgcolor="#CCCCCC" width=4>0</td>
   </tr>
 </table>
-<script>GPACalc.display_transcript();</script>
+<script>GPACalc.document_write_transcript();</script>
 <table>
   <tr>
     <td><input type="button" id="add_class" value="Add Class"
@@ -82,11 +97,11 @@
   </tr>
 </table>
 <table>
-  <tr><td><strong>Key:&nbsp;&nbsp;</strong></td><td class="light_red_background">Incomplete a-g subject requirement</td></tr>
-  <tr><td></td><td class="light_green_background">Completed a-g subject requirement</td></tr>
+  <tr><td><strong>Key:&nbsp;&nbsp;</strong></td><td class="light_red_background">Incomplete a-g subject requirement.</td></tr>
+  <tr><td></td><td class="light_green_background">Completed a-g subject requirement.</td></tr>
   <tr><td></td><td class="extra_point_course_text">Honors or AP course with C or better grade earns extra GPA point.</td></tr>
-  <tr><td></td><td class="failed_course_text">Course with D or lower grade does not qualify for a-g requirement.</td></tr>
-  <tr><td></td><td class="ignored_course_text">Repeated or freshman course grade ignored.</td></tr>
+  <tr><td></td><td class="failed_course_text">Course with D or lower grade affects GPA but does not qualify for a-g requirement.</td></tr>
+  <tr><td></td><td class="ignored_course_text">Either a freshman course or repeated later with a grade of C or better.</td></tr>
   <tr><td></td><td class="linked_course_text">Linked course earns grade of final course in series.</td></tr>  
   </table>
 </body>
