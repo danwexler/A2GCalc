@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 else:
                     full_name = title.contents[0].string
                 full_name = full_name.replace('&nbsp;', ' ').replace('\n','').lstrip().rstrip()
-                transcript_name = abbr.string.replace(' ', '').replace('&nbsp;', '').replace('\n','')
+                transcript_name = abbr.string.replace(' ', '').replace('&nbsp;', '').replace('\n','').partition(',')[0]
                 print '<uc_class>'
                 print '    <full_name>' + full_name + '</full_name>'
                 print '    <transcript_name>' + transcript_name + '</transcript_name>'

@@ -45,7 +45,7 @@ None
 None
 <uc_class>
     <full_name>AP English Literature</full_name>
-    <transcript_name>A/PEng12,APEnglishLit</transcript_name>
+    <transcript_name>A/PEng12</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>1</extra_point>
     <g_valid>1</g_valid>
@@ -174,7 +174,7 @@ None
 None
 <uc_class>
     <full_name>Plane Geometry</full_name>
-    <transcript_name>PLGEOMP,PlaneGeometry</transcript_name>
+    <transcript_name>PLGEOMP</transcript_name>
     <a2g_category>2</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -362,7 +362,7 @@ None
 None
 <uc_class>
     <full_name>Jazz Band</full_name>
-    <transcript_name>JazzBandF,JazzBandS</transcript_name>
+    <transcript_name>JazzBandF</transcript_name>
     <a2g_category>5</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -398,7 +398,7 @@ None
 None
 <uc_class>
     <full_name>Symphonic Band</full_name>
-    <transcript_name>SymphonicBndF,SymphonicBndS</transcript_name>
+    <transcript_name>SymphonicBndF</transcript_name>
     <a2g_category>5</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -406,7 +406,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>9th Grade Science</full_name>
-    <transcript_name>9thGrScience,Hon9thGrSci</transcript_name>
+    <transcript_name>9thGrScience</transcript_name>
     <a2g_category>6</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -478,7 +478,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>Media/Jrn Yearbook</full_name>
-    <transcript_name>Med/JrnYrbF,Med/JrnYrbS</transcript_name>
+    <transcript_name>Med/JrnYrbF</transcript_name>
     <a2g_category>6</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>

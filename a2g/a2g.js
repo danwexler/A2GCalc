@@ -83,7 +83,7 @@ var A2GCourse = function (spec) {
 
 var A2GCourseList = function () {
   var that = {};
-  var all_course = [];
+  var course_list = [];
   var a2g_category = ["(a) History", "(b) English", "(c) Mathematics",
                       "(d) Science", "(e) Language", "(f) Arts",
                       "(g) Elective", "Unused" ];
@@ -101,24 +101,24 @@ var A2GCourseList = function () {
     err.innerHTML = '&nbsp;' + text;
   }
   
-  function find_course_index(term, xnode) {
+  function find_course_index(term, year, xnode) {
     var i;
-    for (i = 0; i < all_course.length; ++i) {
-      if (all_course[i] &&
-          term === all_course[i].term &&
-          xnode === all_course[i].xnode) {
+    for (i = 0; i < course_list.length; ++i) {
+      if (course_list[i] &&
+          term === course_list[i].term &&
+          year === course_list[i].year &&
+          xnode === course_list[i].xnode) {
         return i;
       }
     }
     return -1;
   }
   
-  function find_course_count(xnode) {
+  function find_xnode_count(xnode) {
     var i, n = 0;
-    for (i = 0; i < all_course.length; ++i) {
-      if (all_course[i] &&
-          xnode === all_course[i].xnode) {
-        return n++;
+    for (i = 0; i < course_list.length; ++i) {
+      if (xnode === course_list[i].xnode) {
+        n++;
       }
     }
     return n;
@@ -174,11 +174,11 @@ var A2GCourseList = function () {
     if (course.grade !== 'D' && course.grade !== 'F') {
       return false;
     }
-    for (i = 0; i < all_course.length; ++i) {
-      if (course != all_course[i] &&
-          all_course[i].xnode === course.xnode &&
-          all_course[i].year === course.year &&
-          all_course[i].term > course.term) {
+    for (i = 0; i < course_list.length; ++i) {
+      if (course != course_list[i] &&
+          course_list[i].xnode === course.xnode &&
+          course_list[i].year === course.year &&
+          course_list[i].term > course.term) {
         return true;
       }
     }
@@ -186,8 +186,8 @@ var A2GCourseList = function () {
   }
     
   function display_a2g_course(c, r, course) {
-    var name, grade, rem;
-    var name_text, grade_text, rem_text;
+    var name, grade, term, rem;
+    var name_text, grade_text, term_text, rem_text;
     var i, idx = -1, ignored = false;
     if (course) {
       if (course.year === freshman_year || is_repeated(course)) {
@@ -195,19 +195,23 @@ var A2GCourseList = function () {
       }
       name_text = course.decorated_name(ignored);
       grade_text = course.grade + '&nbsp;';
-      idx = find_course_index(course.term, course.xnode);
+      term_text = course.term + '/' + (course.year - 2000);
+      idx = find_course_index(course.term, course.year, course.xnode);
       rem_text = '<a href="javascript:GPACalc.remove_course(' + idx +
         ');"><img src="trashcan.gif" border=0></a>';
     } else {
       name_text = "&nbsp;";
       grade_text = "&nbsp;";
+      term_text = '&nbsp;';
       rem_text = "&nbsp;";
     }
     name = document.getElementById('c-' + c + '-' + r);
     grade = document.getElementById('g-' + c + '-' + r);
+    term = document.getElementById('t-' + c + '-' + r);
     rem = document.getElementById('r-' + c + '-' + r);
     name.innerHTML = name_text;
     grade.innerHTML = grade_text;
+    term.innerHTML = term_text;
     rem.innerHTML = rem_text;
     return ignored;
   }
@@ -238,7 +242,7 @@ var A2GCourseList = function () {
   function display_all_courses() {
     var a2g_course = [[], [], [], [], [], [], [], []];
     var a2g_extra = [[], [], [], [], [], [], [], []];
-    var tmp_all_course = all_course.concat();
+    var tmp_all_course = course_list.concat();
     var i, c, r, course, ignored, gpa = 0, gpa_course_count = 0;
     
     function compute_best_category(course) {
@@ -373,7 +377,7 @@ var A2GCourseList = function () {
     var i;
     document.writeln('<table cellspacing=0>');
     document.writeln('<tr class="a2g_category_heading">' +
-                     '<td colspan=3 align=center><b>' +
+                     '<td colspan=4 align=center><b>' +
                      a2g_category[c] + '</b></td></tr>');
     for (i = 0; i < a2g_max_semesters; ++i) {
       document.write('<tr class="');
@@ -391,7 +395,8 @@ var A2GCourseList = function () {
         }
       }
       document.write('" id="b-' + c + '-' + i + '">');
-      document.writeln('<td width=164 id="c-' + c + '-' + i + '">&nbsp;</td>');
+      document.writeln('<td width=128 id="c-' + c + '-' + i + '">&nbsp;</td>');
+      document.writeln('<td width=48 id="t-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=16 id="g-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=16 id="r-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('</tr>');
@@ -442,19 +447,19 @@ var A2GCourseList = function () {
     var i, r;
     display_error("");
     if (!xnode) {
-      display_error("Cannot find course " + name);
+      display_error('Cannot find course ' + name);
       return false;
     }
-    if (find_course_index(term, xnode) >= 0) {
-      display_error("Course " + name + " in term " +
-                    course.term + " already exists.");
+    if (find_course_index(term, year, xnode) >= 0) {
+      display_error(name + 'already taken in term ' +
+                    course.term + ' of ' + course.year + '.');
       return false;
     }
-    if (find_course_count(xnode) > 1) {
-      display_error("Course " + name + " already taken for a full year");
+    if (find_xnode_count(xnode) > 1) {
+      display_error(name + ' already taken for a full year.');
       return false;
     }
-    all_course.push(course);
+    course_list.push(course);
     display_all_courses();
     return true;
   };
@@ -462,11 +467,11 @@ var A2GCourseList = function () {
   
   var remove_course = function (i) {
     display_error("");
-    if (i < 0 || i > all_course.length) {
-      display_error('Invalid course index #' + i + ' specified for removal');
+    if (i < 0 || i > course_list.length) {
+      display_error('Invalid course index #' + i + ' specified for removal.');
       return false;
     }
-    all_course.splice(i, 1);
+    course_list.splice(i, 1);
     display_all_courses();
     return true;
   };

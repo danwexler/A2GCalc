@@ -36,7 +36,7 @@ None
 None
 <uc_class>
     <full_name>U.S. History (AP)</full_name>
-    <transcript_name>U.S.HISTAP,USHISTAP</transcript_name>
+    <transcript_name>U.S.HISTAP</transcript_name>
     <a2g_category>0</a2g_category>
     <extra_point>1</extra_point>
     <g_valid>1</g_valid>
@@ -44,7 +44,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>English 10</full_name>
-    <transcript_name>ENGLISH10,ENGLISH10P</transcript_name>
+    <transcript_name>ENGLISH10</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -52,7 +52,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>English 10 (H)</full_name>
-    <transcript_name>HON.ENGL10,HON.ENGL.10</transcript_name>
+    <transcript_name>HON.ENGL10</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -60,7 +60,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>English 11</full_name>
-    <transcript_name>ENGLISH11,ENGLISH11P</transcript_name>
+    <transcript_name>ENGLISH11</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -76,7 +76,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>English 9</full_name>
-    <transcript_name>ENGLISH9,ENGLISH9PT.II</transcript_name>
+    <transcript_name>ENGLISH9</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -84,7 +84,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>English 9 (H)</full_name>
-    <transcript_name>HON.ENG.9P,HON.ENG.9P</transcript_name>
+    <transcript_name>HON.ENG.9P</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -102,7 +102,7 @@ None
 None
 <uc_class>
     <full_name>English Literature Composition (A</full_name>
-    <transcript_name>APEngLit,APEngLitUCCP</transcript_name>
+    <transcript_name>APEngLit</transcript_name>
     <a2g_category>1</a2g_category>
     <extra_point>1</extra_point>
     <g_valid>1</g_valid>
@@ -129,7 +129,7 @@ None
 None
 <uc_class>
     <full_name>Algebra II</full_name>
-    <transcript_name>ALGEBRAII,ALGEBRAII,ALGEBRAIIP</transcript_name>
+    <transcript_name>ALGEBRAII</transcript_name>
     <a2g_category>2</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -180,7 +180,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>Chemistry</full_name>
-    <transcript_name>CHEMISTRY,CHEMISTRYP</transcript_name>
+    <transcript_name>CHEMISTRY</transcript_name>
     <a2g_category>3</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -196,7 +196,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>Physiology</full_name>
-    <transcript_name>ANTMY/PHYSP,PHYSIOLOGY</transcript_name>
+    <transcript_name>ANTMY/PHYSP</transcript_name>
     <a2g_category>3</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -205,7 +205,7 @@ None
 None
 <uc_class>
     <full_name>Spanish I</full_name>
-    <transcript_name>SPANISHI,SPANISHIP</transcript_name>
+    <transcript_name>SPANISHI</transcript_name>
     <a2g_category>4</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -213,7 +213,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>Spanish II</full_name>
-    <transcript_name>SPANISHII,SPANISHII,SPANISHIIP</transcript_name>
+    <transcript_name>SPANISHII</transcript_name>
     <a2g_category>4</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -247,7 +247,7 @@ None
 None
 <uc_class>
     <full_name>Art</full_name>
-    <transcript_name>ART,ARTIP</transcript_name>
+    <transcript_name>ART</transcript_name>
     <a2g_category>5</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -282,7 +282,7 @@ None
 None
 <uc_class>
     <full_name>Jazz Band</full_name>
-    <transcript_name>JAZZBAND,JAZZBANDP</transcript_name>
+    <transcript_name>JAZZBAND</transcript_name>
     <a2g_category>5</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -291,7 +291,7 @@ None
 None
 <uc_class>
     <full_name>Jazz Ensemble</full_name>
-    <transcript_name>JAZZENSEMBLE,JAZZENSMBLE</transcript_name>
+    <transcript_name>JAZZENSEMBLE</transcript_name>
     <a2g_category>5</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -318,7 +318,7 @@ None
 None
 <uc_class>
     <full_name>Wind Ensemble</full_name>
-    <transcript_name>WINDENSEMBL,WINDENSMBL</transcript_name>
+    <transcript_name>WINDENSEMBL</transcript_name>
     <a2g_category>5</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -326,7 +326,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>Earth Science P</full_name>
-    <transcript_name>EarthSciP,PHYSSCI.P,PHYSICALSCI.</transcript_name>
+    <transcript_name>EarthSciP</transcript_name>
     <a2g_category>6</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -343,7 +343,7 @@ None
 None
 <uc_class>
     <full_name>Macro Economics AP</full_name>
-    <transcript_name>EconAP,MacroEconAP</transcript_name>
+    <transcript_name>EconAP</transcript_name>
     <a2g_category>6</a2g_category>
     <extra_point>1</extra_point>
     <g_valid>1</g_valid>

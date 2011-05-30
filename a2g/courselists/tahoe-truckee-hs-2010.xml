@@ -183,7 +183,7 @@ None
 None
 <uc_class>
     <full_name>Plane Geometry</full_name>
-    <transcript_name>PLGEOMP,PlaneGeometry</transcript_name>
+    <transcript_name>PLGEOMP</transcript_name>
     <a2g_category>2</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>0</g_valid>
@@ -234,7 +234,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>Biology</full_name>
-    <transcript_name>Biology,HonorsBiology</transcript_name>
+    <transcript_name>Biology</transcript_name>
     <a2g_category>3</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
@@ -327,7 +327,7 @@ None
 </uc_class>
 <uc_class>
     <full_name>9th Grade Science</full_name>
-    <transcript_name>9thGrScience,Hon9thGrSci</transcript_name>
+    <transcript_name>9thGrScience</transcript_name>
     <a2g_category>6</a2g_category>
     <extra_point>0</extra_point>
     <g_valid>1</g_valid>
