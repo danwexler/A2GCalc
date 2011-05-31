@@ -9,23 +9,127 @@
   .dark_red_background { background-color:#EDDDDD; }
   .light_green_background { background-color:#EEFEEE; }
   .dark_green_background { background-color:#DDEDDD; }
-  .a2g_category_heading { background-color:#BBBB99; }
+  .a2g_category_heading { background-color:#999977; }
   /* course text coloring affecting GPA calc */
   .extra_point_course_text { color:#00A000; }
-  .failed_course_text { color:#A00000; }
-  .ignored_course_text { color:#A0A000; }
-  .linked_course_text { color:#00A0A0; }
-  .standard_course_text { color:#000000; }
+  .failed_course_text { font: 12pt arial; color:#A00000; }
+  .ignored_course_text { font: 12pt arial; color:#A0A000; }
+  .linked_course_text { font: 12pt arial; color:#00A0A0; }
+  .standard_course_text { font: 12pt arial; color:#000000; }
+  .gpa_text { font: 12pt arial; background-color:#F0F0F0; color:#0000FF; }
+  .error_text { font: 12pt arial; color:#F00000; }
+  .warning_text { font: 12pt arial; color:#F0F000; }
+
+body { font:12pt arial; }
+
+#sddm
+{ margin: 0;
+  padding: 0;
+  z-index: 30}
+
+#sddm li
+{ margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+  font: 12pt arial}
+
+#sddm li a
+{ display: block;
+  margin: 0 1px 0 0;
+  padding: 4px 10px;
+  width: 220px;
+  background: #999977;
+  color: #FFF;
+  font: bold 11pt arial;
+  text-align: center;
+  text-decoration: none}
+
+#sddm li a:hover
+{ background: #49A3FF}
+
+#sddm div
+{ position: absolute;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  background: #EAEBD8;
+  border: 1px solid #5970B2}
+
+  #sddm div a
+  { position: relative;
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: none;
+    background: #EAEBD8;
+    color: #2875DE;
+    font: 11pt arial}
+
+  #sddm div a:hover
+  { background: #49A3FF;
+    color: #FFF}
+
+#sddm2
+{ margin: 0;
+  padding: 0;
+  z-index: 30}
+
+#sddm2 li
+{ margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+  font: bold 12px arial}
+
+#sddm2 li a
+{ display: block;
+  margin: 0 1px 0 0;
+  padding: 4px 10px;
+  width: auto;
+  background: transparent;
+  text-align: center;
+  text-decoration: none}
+
+#sddm2 li a:hover
+{ background: #49A3FF}
+
+#sddm2 div
+{ position: absolute;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  background: #EAEBD8;
+  border: 1px solid #5970B2}
+
+  #sddm2 div a
+  { position: relative;
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: none;
+    background: #EAEBD8;
+    color: #2875DE;
+    font: 11px arial}
+
+  #sddm2 div a:hover
+  { background: #49A3FF;
+    color: #FFF}
 --></style>
 <script language="JavaScript" src="a2g.js"></script>
 </head>
 <body onLoad="GPACalc.init();">
+<div style="clear:both"></div>
 <table cellspacing=5>
   <tr>
-    <td>Name:</td>
-    <td colspan=4><input type="text" name="student_name" size="40"></input></td>
     <td>Freshman year:
-      <select id="freshman_year" onChange="GPACalc.update_freshman_year();">
+      <select id="freshman_year" onChange="GPACalc.update_curriculum();">
         <option>2011</option>
         <option>2010</option>
         <option>2009</option>
@@ -37,65 +141,30 @@
         <option>2003</option>
       </select>
     </td>
-    <td><input type="button" id="load_transcript" value="Open" onClick="load_transcript();"</input></td>
-    <td><input type="button" id="save_transcript" value="Save" onClick="save_transcript();"</input></td>
-  </tr>
-  <tr>
-    <td align=right><b>GPA:</b></td><td id="gpa" bgcolor="#CCCCCC" width=4>0</td>
-  </tr>
-</table>
-<script>GPACalc.document_write_transcript();</script>
-<table>
-  <tr>
-    <td><input type="button" id="add_class" value="Add Class"
-      onClick="GPACalc.add_course();"></input></td>
-    <td>&nbsp;&nbsp;</td>
     <td>
-      <select id="course_name">
-      </select>
-    </td>
-    <td>
-      <input type=radio id="grade" name="grade" value="A" checked>A</input>
-      <input type=radio id="grade" name="grade" value="B">B</input>
-      <input type=radio id="grade" name="grade" value="C">C</input>
-      <input type=radio id="grade" name="grade" value="D">D</input>
-      <input type=radio id="grade" name="grade" value="F">F</input>
-      &nbsp;&nbsp;
-    </td>
-    <td>
-      <select id="term">
-        <option value="1">Term 1</option>
-        <option value="2">Term 2</option>
-        <option value="3">Term 3</option>
-        <option value="4">Term 4</option>
-      </select>
-    </td>
-    <td>
-      <select id="year">
-        <option>2011</option>
-        <option>2010</option>
-        <option>2009</option>
-        <option>2008</option>
-        <option>2007</option>
-        <option>2006</option>
-        <option>2005</option>
-        <option>2004</option>
-        <option>2003</option>
-      </select>
-    </td>
-    <td>
-      <select id="school_name" onChange="GPACalc.update_curriculum();">
+      <select id="school_name" onChange="GPACalc.updatate_curriculum();">
         <option>Tahoe Truckee HS</option>
         <option>North Tahoe HS</option>
       </select>
     </td>
   </tr>
+</table>  
+<table>
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td colspan=4 id="class_error" style="color:red">&nbsp;</td></font>
+    <td><strong>GPA:</strong></td>
+    <td>unweighted&nbsp;=</td>
+    <td id="unweighted_gpa" class="gpa_text" width=4>0</td>
+    <td>weighted&nbsp;=</td>
+    <td id="weighted_gpa" class="gpa_text" width=4>0</td>
+    <td>weighted & capped&nbsp;=</td>
+    <td id="weighted_capped_gpa" class="gpa_text" width=4>0</td>
+    <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;NCAA Eligible:</strong></td>
+    <td id="ncaa_eligible" class="gpa_text" width=4>No</td>
   </tr>
 </table>
+<script>GPACalc.document_write_transcript();</script>
+<span id="class_error" class="error_text">&nbsp;</span>
+<br></br>
 <table>
   <tr><td><strong>Key:&nbsp;&nbsp;</strong></td><td class="light_red_background">Incomplete a-g subject requirement.</td></tr>
   <tr><td></td><td class="light_green_background">Completed a-g subject requirement.</td></tr>
