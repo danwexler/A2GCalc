@@ -17,6 +17,7 @@
   .linked_course_text { font: 12pt arial; color:#00A0A0; }
   .standard_course_text { font: 12pt arial; color:#000000; }
   .gpa_text { font: 12pt arial; background-color:#F0F0F0; color:#0000FF; }
+  .gpa_label_text { font: 9pt arial; }
   .error_text { font: 12pt arial; color:#F00000; }
   .warning_text { font: 12pt arial; color:#F0F000; }
 
@@ -38,7 +39,7 @@ body { font:12pt arial; }
 { display: block;
   margin: 0 1px 0 0;
   padding: 4px 10px;
-  width: 220px;
+  width: 223px;
   background: #999977;
   color: #FFF;
   font: bold 11pt arial;
@@ -46,7 +47,7 @@ body { font:12pt arial; }
   text-decoration: none}
 
 #sddm li a:hover
-{ background: #49A3FF}
+{ background: #777799}
 
 #sddm div
 { position: absolute;
@@ -70,7 +71,7 @@ body { font:12pt arial; }
     font: 11pt arial}
 
   #sddm div a:hover
-  { background: #49A3FF;
+  { background: #777799;
     color: #FFF}
 
 #sddm2
@@ -95,7 +96,7 @@ body { font:12pt arial; }
   text-decoration: none}
 
 #sddm2 li a:hover
-{ background: #49A3FF}
+{ background: #777799}
 
 #sddm2 div
 { position: absolute;
@@ -119,7 +120,7 @@ body { font:12pt arial; }
     font: 11px arial}
 
   #sddm2 div a:hover
-  { background: #49A3FF;
+  { background: #777799;
     color: #FFF}
 --></style>
 <script language="JavaScript" src="a2g.js"></script>
@@ -152,13 +153,13 @@ body { font:12pt arial; }
 <table>
   <tr>
     <td><strong>GPA:</strong></td>
-    <td>unweighted&nbsp;=</td>
+    <td class="gpa_label_text">unweighted&nbsp;=</td>
     <td id="unweighted_gpa" class="gpa_text" width=4>0</td>
-    <td>weighted&nbsp;=</td>
+    <td class="gpa_label_text">weighted&nbsp;=</td>
     <td id="weighted_gpa" class="gpa_text" width=4>0</td>
-    <td>weighted & capped&nbsp;=</td>
+    <td class="gpa_label_text">weighted & capped&nbsp;=</td>
     <td id="weighted_capped_gpa" class="gpa_text" width=4>0</td>
-    <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;NCAA Eligible:</strong></td>
+    <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;NCAA:</strong></td>
     <td id="ncaa_eligible" class="gpa_text" width=4>No</td>
   </tr>
 </table>

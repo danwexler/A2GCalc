@@ -76,9 +76,6 @@ function mcancelclosetime() {
   }
 }
 
-// close layer when click-out
-document.onclick = mclose;
-
 //
 // A2GCourse Class
 //
@@ -238,9 +235,9 @@ var A2GTranscript = function () {
   }
   
   function generate_menu_head_html(title, id) {
-    var t = '<ul id="sddm2"><li><a href="#" onmouseover="mopen(\'m' + id +
+    var t = '<ul id="sddm2"><li><a href="#" onmousedown="mopen(\'m' + id +
             '\')" onmouseout="mclosetime()">' + title + 
-            '<img src="icon_down_arrow.gif" border=0></a>' +
+            '<img src="icon_down_triangle.gif" border=0></a>' +
             '<div id="m' + id + '" onmouseover="mcancelclosetime()" ' +
             'onmouseout="mclosetime()">';
     return t;
@@ -268,7 +265,7 @@ var A2GTranscript = function () {
       grade_menu_text = generate_menu_head_html(grade_text, y);
       for (y = 0; y < 5; ++y) {
         grade_menu_text += '<a href="javascript:GPACalc.set_grade(' +
-        c + ', ' + idx + ', \'' + a_f_grade[y] + '\');">' +
+        c + ', ' + idx + ', \'' + a_f_grade[y] + '\');mclose();">' +
         a_f_grade[y] + '</a>\n';
       }
       grade_menu_text += generate_menu_foot_html();
@@ -278,7 +275,7 @@ var A2GTranscript = function () {
       for (y = 0; y < 4; ++y) {
         for (t = 1; t < 5; ++t) {
           term_menu_text += '<a href="javascript:GPACalc.set_date(' +
-            c + ', ' + idx + ', ' + t + ', ' + y + ');">' +
+            c + ', ' + idx + ', ' + t + ', ' + y + ');mclose();">' +
             'T' + t + ',&nbsp;' + (freshman_year + y) + '</a>\n';
         }
       }
@@ -473,9 +470,10 @@ var A2GTranscript = function () {
     document.writeln('<tr class="a2g_category_heading">' +
                      '<td colspan=4 align=cente id="ch-' + c + '">' +
                      '<ul id="sddm">' +
-                     '<li><a href="#" onmouseover="mopen(\'m' +
+                     '<li><a href="#" onmousedown="mopen(\'m' +
                      c + '\')" onmouseout="mclosetime()">' +
-                     a2g_category[c] + '</a>' +
+                     a2g_category[c] + '&nbsp;' +
+                     '<img src="icon_down_triangle.gif" border=0></a>' +
                      '<div id="m' + c + '"' +
                      'onmouseover="mcancelclosetime()"' +
                      'onmouseout="mclosetime()">' +
@@ -543,7 +541,7 @@ var A2GTranscript = function () {
           fn = get_xnode_text(x[j], 'full_name');
           if ((cc === c || (c === 6 && gv)) && li.indexOf(fn) === -1) {
             lit = '<a href="javascript:GPACalc.add_course(' +
-              c + ', ' + i + ', ' + j + ', \'' + fn + '\')">' + fn + '</a>\n';
+              c + ', ' + i + ', ' + j + ', \'' + fn + '\'); mclose();">' + fn + '</a>\n';
             li += lit;
           }
         }
@@ -571,9 +569,21 @@ var A2GTranscript = function () {
       'xnode': xnode
     });
     display_error("");
+    
     if (!xnode) {
-      display_error('Cannot find course ' + name);
-      return false;
+      for (year = 0; year < 4; ++year) {
+        xnode = find_curriculum_xnode(name, year);
+        if (xnode) {
+          last_set_year = year + freshman_year;
+          course.year = last_set_year;
+          course.xnode = xnode;
+          break;
+        }
+      }
+      if (!xnode) {
+        display_error('Cannot find course ' + name);
+        return false;
+      }
     }
     if (find_xnode_pass_count(xnode) > 1) {
       display_error(name + ' already taken for a full year.');
