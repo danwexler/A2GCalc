@@ -46,23 +46,9 @@ var timeout = 700;
 var closetimer  = 0;
 var ddmenuitem  = 0;
 
-function mopen(id) { 
-  mcancelclosetime();
-  if (ddmenuitem) { // close old layer
-    ddmenuitem.style.visibility = 'hidden';
-    if (id === ddmenuitem.id) {
-      ddmenuitem = undefined;
-      return;   // don't open same menu again
-    }
-  }
-  // get new layer and show it
-  ddmenuitem = document.getElementById(id);
-  ddmenuitem.style.visibility = 'visible';
-}
-
 // close showed layer
 function mclose() {
-  if(ddmenuitem) {
+  if (ddmenuitem) {
     ddmenuitem.style.visibility = 'hidden';
     ddmenuitem = undefined;
   }
@@ -79,6 +65,20 @@ function mcancelclosetime() {
     window.clearTimeout(closetimer);
     closetimer = null;
   }
+}
+
+function mopen(id) { 
+  mcancelclosetime();
+  if (ddmenuitem) { // close old layer
+    ddmenuitem.style.visibility = 'hidden';
+    if (id === ddmenuitem.id) {
+      ddmenuitem = undefined;
+      return;   // don't open same menu again
+    }
+  }
+  // get new layer and show it
+  ddmenuitem = document.getElementById(id);
+  ddmenuitem.style.visibility = 'visible';
 }
 
 //
@@ -118,7 +118,7 @@ var A2GCourse = function (spec) {
   };
   
   that.category = function () {
-    return parseInt(get_xnode_text(that.xnode, 'a2g_category'));
+    return parseInt(get_xnode_text(that.xnode, 'a2g_category'), 10);
   };
   
   that.extra_point = function () {
@@ -163,13 +163,13 @@ var A2GCourse = function (spec) {
 //
 var A2GTranscript = function () {
   var that = {};
-  var a2g_course = [[], [], [], [], [], [], [], []];
+  var a2g_course = [[], [], [], [], [], [], []];
   var a2g_category = ["(a) History", "(b) English", "(c) Mathematics",
                       "(d) Science", "(e) Language", "(f) Arts",
-                      "(g) Elective", "Unused" ];
+                      "(g) Elective" ];
   var a2g_required = [4, 8, 6, 4, 4, 2, 2, 0];
   var a2g_max_semesters = 10;
-  var freshman_year, school_name;
+  var freshman_year;
   var curriculum = [[], [], [], []];
   var last_set_term, last_set_year, last_set_grade;
  
@@ -185,7 +185,7 @@ var A2GTranscript = function () {
   function find_course_index(c, course) {
     var i;
     for (i = 0; i < a2g_course[c].length; ++i) {
-      if (a2g_course[c][i] == course) {
+      if (a2g_course[c][i] === course) {
         return i;
       }
     }
@@ -198,7 +198,8 @@ var A2GTranscript = function () {
       c = j ? 6 : course.category();
       for (i = 0; i < a2g_course[c].length; ++i) {
         if (course.full_name() === a2g_course[c][i].full_name() &&
-            !(a2g_course[c][i].grade === 'D' || a2g_course[c][i].grade === 'F')) {
+            !(a2g_course[c][i].grade === 'D' ||
+              a2g_course[c][i].grade === 'F')) {
           n++;
         }
       }
@@ -219,7 +220,13 @@ var A2GTranscript = function () {
   }
 
   function find_curriculum_xnode(full_name, year) {
-    var i, x = curriculum[year].getElementsByTagName("uc_class");
+    var y = year >= freshman_year ? year - freshman_year : year;
+    if (y < 0 || y > 3) {
+      display_error("Invalid course year, " + year +
+                    " (freshman year is " + freshman_year + ")");
+      return;
+    }
+    var i, x = curriculum[y].getElementsByTagName("uc_class");
     for (i = 0; i < x.length; ++i) { 
       if (get_xnode_text(x[i], 'full_name') === full_name) {
         return x[i];
@@ -229,7 +236,8 @@ var A2GTranscript = function () {
 
   function check_date(course, term, year) {
     if (!find_curriculum_xnode(course.full_name(), year)) {
-      display_error(course.full_name() + ' was not offered for UC credit in ' + year);
+      display_error(course.full_name() + 
+                    ' was not offered for UC credit in ' + year);
       return false;
     }
     var i, j, c, n = 0;
@@ -271,16 +279,6 @@ var A2GTranscript = function () {
       return 1.0;
     } else if (grade === "F") {
       return 0.0;
-    }
-  }
-
-  function get_document_grade_value() {
-    var i;
-    var grade = document.getElementsByName('grade');
-    for (i = 0; i < grade.length; i++) {
-      if (grade[i].checked) {
-        return grade[i].value;
-      }
     }
   }
 
@@ -333,29 +331,29 @@ var A2GTranscript = function () {
       y = c * a2g_max_semesters + r + 100;
       grade_menu_text = generate_menu_head_html(grade_text, y);
       for (y = 0; y < 5; ++y) {
-        grade_menu_text += '<a href="javascript:GPACalc.set_grade(' +
-        c + ', ' + idx + ', \'' + a_f_grade[y] + '\');mclose();">' +
-        a_f_grade[y] + '</a>\n';
+        grade_menu_text += '<a href="javascript:A2GCalc.set_grade(' +
+          c + ', ' + idx + ', \'' + a_f_grade[y] + '\');mclose();">' +
+          a_f_grade[y] + '</a>\n';
       }
       grade_menu_text += generate_menu_foot_html();
-      term_text = 'T' + course.term + " '" + String(course.year).substr(2,2);
+      term_text = 'T' + course.term + " '" + String(course.year).substr(2, 2);
       y = c * a2g_max_semesters + r + 1000;
       term_menu_text = generate_menu_head_html(term_text, y);
       for (y = 0; y < 4; ++y) {
         for (t = 1; t < 5; ++t) {
-          term_menu_text += '<a href="javascript:GPACalc.set_date(' +
+          term_menu_text += '<a href="javascript:A2GCalc.set_date(' +
             c + ', ' + idx + ', ' + t + ', ' + y + ');mclose();">' +
             'T' + t + ',&nbsp;' + (freshman_year + y) + '</a>\n';
         }
       }
       term_menu_text += generate_menu_foot_html();
       if (course.g_valid()) {
-        rem_text = '<a href="javascript:GPACalc.move_to_g(' +  c +
+        rem_text = '<a href="javascript:A2GCalc.move_to_g(' +  c +
           ', ' + idx + ');" class="move2g_text">g&nbsp;';
       } else {
         rem_text = '&nbsp;&nbsp;&nbsp;';
       }
-      rem_text += '<a href="javascript:GPACalc.remove_course(' + c +
+      rem_text += '<a href="javascript:A2GCalc.remove_course(' + c +
         ', ' + idx + ');"><img src="trashcan.gif" border=0></a>';
     } else {
       name_text = "&nbsp;";
@@ -388,8 +386,9 @@ var A2GTranscript = function () {
   
   function display_gpa(grade_point_count, semester_course_count,
                        extra_point_count, extra_point_capped_count) {
-    var gpa = 0;
+    var gpa, idx, x, math, read, write, best_math, best_read;
     var elem = document.getElementById('unweighted_gpa');
+    
     if (semester_course_count === 0) {
       elem.innerHTML = 0;
       elem = document.getElementById('weighted_gpa');
@@ -406,17 +405,44 @@ var A2GTranscript = function () {
     gpa = (grade_point_count + extra_point_count) / semester_course_count;
     gpa = Math.round(gpa * Math.pow(10, 2)) / Math.pow(10, 2);
     elem = document.getElementById('weighted_gpa');
+    elem.className = gpa >= 3 ? 'score_green_text' : 'score_red_text';
     elem.innerHTML = gpa;
     
     gpa = (grade_point_count + extra_point_capped_count) /
       semester_course_count;
     gpa = Math.round(gpa * Math.pow(10, 2)) / Math.pow(10, 2);
     elem = document.getElementById('weighted_capped_gpa');
+    elem.className = gpa >= 3 ? 'score_green_text' : 'score_red_text';
     elem.innerHTML = gpa;
+    
+    math = parseInt(document.getElementById('sat_sit_math').value, 10);
+    read = parseInt(document.getElementById('sat_sit_read').value, 10);
+    write = parseInt(document.getElementById('sat_sit_write').value, 10);
+
+    elem = document.getElementById('uc_score');
+    idx = Math.round(60 + (math + read + write) / 10);
+    x = (gpa - 3) * 100 / 5 * 2 + idx - 263;
+    if (write >= 200 && gpa >= 3 && x >= 0) {
+      elem.className = 'score_green_text';
+    } else {
+      elem.className = 'score_red_text';
+    }
+    elem.innerHTML = idx;
+    
+    math = parseInt(document.getElementById('sat_best_math').value, 10);
+    read = parseInt(document.getElementById('sat_best_read').value, 10);
+    elem = document.getElementById('csu_index');
+    idx = Math.round(gpa * 800 + math + read);
+    if (gpa >= 2 && idx >= 2900) {
+      elem.className = 'score_green_text';
+    } else {
+      elem.className = 'score_red_text';
+    }
+    elem.innerHTML = idx;
   }
   
   function display_all_courses() {
-    var i, j, c, r, course, ignored;
+    var i, j, c, r, ignored;
     var extra_point_count = 0;
     var extra_point_soph_count = 0;
     var extra_point_capped_count = 0;
@@ -596,7 +622,8 @@ var A2GTranscript = function () {
         }
       }
       document.write('" id="b-' + c + '-' + i + '">');
-      document.writeln('<td class="course_text" width=120 height=24 id="c-' + c + '-' + i + '">&nbsp;</td>');
+      document.writeln('<td class="course_text" width=120 height=24 id="c-' +
+                       c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=54 id="t-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=28 id="g-' + c + '-' + i + '">&nbsp;</td>');
       document.writeln('<td width=28 id="r-' + c + '-' + i + '">&nbsp;</td>');
@@ -618,9 +645,12 @@ var A2GTranscript = function () {
         node.className = bg[i % 2];
         node.id = 'b-' + c + '-' + (a2g_max_semesters + i);
         for (j = 0; j < node.childNodes.length; ++j) {
-          if (j % 2) continue;
+          if (j % 2) {
+            continue;
+          }
           node.childNodes[j].innerHTML = '&nbsp;';
-          node.childNodes[j].id = tdid[j/2] + '-' + c + '-' + (a2g_max_semesters + i);
+          node.childNodes[j].id = tdid[j / 2] + '-' + c +
+            '-' + (a2g_max_semesters + i);
         }
         table.appendChild(node);
       }
@@ -632,28 +662,27 @@ var A2GTranscript = function () {
   // Public Interface
   //
   
-  function get_document_curriculum_filename() {
-    return filename;
-  }
-
   var update_curriculum = function () {
     var school_name = document.getElementById('school_name').value;
     var i, j, c, cc, gv, fn, x, category_menu, li, lit, filename;
     display_error("");
-    freshman_year = parseInt(document.getElementById('freshman_year').value);
+    x = document.getElementById('freshman_year').value;
+    freshman_year = parseInt(x, 10);
     last_set_year = freshman_year;
     last_set_term = 1;
     last_set_grade = 'C';
     for (i = 0; i < 4; ++i) {
-      filename = "courselists/" + school_name + "-" + (freshman_year + i) + ".xml";
+      filename = "courselists/" + school_name + "-" +
+        (freshman_year + i) + ".xml";
       while (filename.indexOf(" ") !== -1) {
         filename = filename.replace(" ", "-");
       }
       filename = filename.toLowerCase();
       curriculum[i] = load_xml_doc(filename);
-      if (! curriculum[i] && i > 0) {
-        display_error("Cannot find curriculum for " + (freshman_year + i) + ", using prior year.");
-        curriculum[i] = curriculum[i-1];
+      if (!curriculum[i] && i > 0) {
+        display_error("Cannot find curriculum for " + (freshman_year + i) +
+                      ", using prior year.");
+        curriculum[i] = curriculum[i - 1];
       }
     }
     for (c = 0; c < a2g_category.length; ++c) {
@@ -661,12 +690,12 @@ var A2GTranscript = function () {
       for (i = 0; i < 4; ++i) {
         x = curriculum[i].getElementsByTagName("uc_class");
         for (j = 0; j < x.length; ++j) {
-          cc = parseInt(get_xnode_text(x[j], 'a2g_category'));
+          cc = parseInt(get_xnode_text(x[j], 'a2g_category'), 10);
           gv = get_xnode_text(x[j], 'g_valid') === '1';
           fn = get_xnode_text(x[j], 'full_name');
           if ((cc === c || (c === 6 && gv)) && li.indexOf(fn) === -1) {
-            lit = '<a href="javascript:GPACalc.add_course(' +
-              c + ', ' + i + ', ' + j + ', \'' + fn + '\'); mclose();">' + fn + '</a>\n';
+            lit = '<a href="javascript:A2GCalc.add_course(' +
+              c + ', \'' + fn + '\'); mclose();">' + fn + '</a>\n';
             li += lit;
           }
         }
@@ -682,11 +711,11 @@ var A2GTranscript = function () {
     update_curriculum();
   };
   
-  var add_course = function (c, i, j, name) {
+  var add_course = function (c, name) {
     var grade = last_set_grade;
     var term = last_set_term;
     var year = last_set_year;
-    var xnode = find_curriculum_xnode(name, last_set_year - freshman_year);
+    var xnode = find_curriculum_xnode(name, last_set_year);
     var course = A2GCourse({
       'grade': grade,
       'term': term,
@@ -712,7 +741,8 @@ var A2GTranscript = function () {
     }
     
     if (find_course_pass_count(course) > 1) {
-      display_error('You have already taken and passed a full year of ' + course.full_name());
+      display_error('You have already taken and passed a full year of ' +
+                    course.full_name());
       return;
     }
     
@@ -722,23 +752,25 @@ var A2GTranscript = function () {
         do {
           ++course.year;
           if (course.year < freshman_year + 4) {
-            course.xnode = find_curriculum_xnode(course.full_name(), course.year - freshman_year);
+            course.xnode = find_curriculum_xnode(course.full_name(),
+                                                 course.year);
           }
-        } while (! course.xnode && course.year < freshman_year + 4);
+        } while (!course.xnode && course.year < freshman_year + 4);
         
         if (course.year > freshman_year + 3) {
           course.year = last_set_year;
           course.term = 4;
-          course.xnode = find_curriculum_xnode(course.full_name(), course.year - freshman_year);
+          course.xnode = find_curriculum_xnode(course.full_name(), course.year);
           while (find_duplicate_course(course)) {
             if (--course.term < 1) {
               course.term = 4;
               do {
                 --course.year;
                 if (course.year >= freshman_year) {
-                  course.xnode = find_curriculum_xnode(course.full_name(), course.year - freshman_year);
+                  course.xnode = find_curriculum_xnode(course.full_name(),
+                                                       course.year);
                 }
-              } while (! course.xnode && course.year >= freshman_year);
+              } while (!course.xnode && course.year >= freshman_year);
               if (course.year < freshman_year) {
                 display_error("You seem to have taken " + course.full_name() +
                               " in every semester of high school!");
@@ -765,11 +797,13 @@ var A2GTranscript = function () {
   var remove_course = function (c, i) {
     display_error("");
     if (c < 0 || c >= a2g_category.length) {
-      display_error('Invalid course category #' + c + ' specified for removal.');
+      display_error('Invalid course category #' + c +
+                    ' specified for removal.');
       return;
     }
     if (i < 0 || i >= a2g_course[c].length) {
-      display_error('Invalid course index #' + i + ' specified for removal.');
+      display_error('Invalid course index #' + i +
+                    ' specified for removal.');
       return;
     }
     a2g_course[c].splice(i, 1);
@@ -779,39 +813,46 @@ var A2GTranscript = function () {
   that.remove_course = remove_course;
 
   var set_date = function (c, i, term, year) {
+    var course;
     display_error("");
     if (c < 0 || c >= a2g_category.length) {
-      display_error('Invalid course category #' + c + ' specified for setting date.');
+      display_error('Invalid course category #' + c +
+                    ' specified for setting date.');
       return;
     }
     if (i < 0 || i >= a2g_course[c].length) {
-      display_error('Invalid course index #' + i + ' specified for setting date.');
+      display_error('Invalid course index #' + i +
+                    ' specified for setting date.');
       return;
     }
-    if (! check_date(a2g_course[c][i], term, freshman_year + year)) {
+    course = a2g_course[c][i];
+    if (!check_date(course, term, freshman_year + year)) {
       return;
     }
     last_set_year = freshman_year + year;
     last_set_term = term;
-    if (a2g_course[c][i].year !== last_set_year) {
-      a2g_course[c][i].xnode = find_curriculum_xnode(a2g_course[c][i].full_name(),
-                                                     a2g_course[c][i].year - freshman_year);
+    if (course.year !== last_set_year) {
+      course.xnode = find_curriculum_xnode(course.full_name(),
+                                           course.year);
     }
-    a2g_course[c][i].year = last_set_year;
-    a2g_course[c][i].term = last_set_term;
+    course.year = last_set_year;
+    course.term = last_set_term;
     display_all_courses();
   };
   that.set_date = set_date;
 
-  // FIXME: If changing from fail to pass, check to make sure there are <2 semesters
+  // FIXME: If changing from fail to pass, check to make sure
+  // there are <2 semesters
   var set_grade = function (c, i, grade) {
     display_error("");
     if (c < 0 || c >= a2g_category.length) {
-      display_error('Invalid course category #' + c + ' specified for setting date.');
+      display_error('Invalid course category #' + c + 
+                    ' specified for setting date.');
       return;
     }
     if (i < 0 || i >= a2g_course[c].length) {
-      display_error('Invalid course index #' + i + ' specified for setting date.');
+      display_error('Invalid course index #' + i +
+                    ' specified for setting date.');
       return;
     }
     a2g_course[c][i].grade = grade;
@@ -822,15 +863,18 @@ var A2GTranscript = function () {
   
   var move_to_g = function (c, i) {
     if (c < 0 || c >= a2g_category.length) {
-      display_error('Invalid course category #' + c + ' specified for move to g.');
+      display_error('Invalid course category #' + c + 
+                    ' specified for move to g.');
       return;
     }
     if (i < 0 || i >= a2g_course[c].length) {
-      display_error('Invalid course index #' + i + ' specified for move to g.');
+      display_error('Invalid course index #' + i +
+                    ' specified for move to g.');
       return;
     }
     if (!a2g_course[c][i].g_valid()) {  // should never happen...
-      display_error(a2g_course[c][i].full_name() + ' is not allowed to move to g.');
+      display_error(a2g_course[c][i].full_name() +
+                    ' is not allowed to move to g.');
       return;
     }
     if (c === 6) {
@@ -843,7 +887,12 @@ var A2GTranscript = function () {
     display_all_courses();
   };
   that.move_to_g = move_to_g;
-    
+  
+  var update_sat = function () {
+    display_all_courses();
+  }
+  that.update_sat = update_sat;
+  
   var document_write_transcript = function () {
     var i;
     document.writeln("<table cellspacing=0><tr>");
@@ -855,7 +904,39 @@ var A2GTranscript = function () {
         document.writeln("</tr><tr>");
       }
     }
-    document.writeln("</table>");
+    document.writeln('<td valign=top vsize="100%" class="light_gray_background">' +
+                     '<table id="sat_table" cellpadding=0 cellspacing=0 border=0>' +
+                     '<tr><td class="a2g_category_heading" colspan=4 ' +
+                     'align=center width=230 height=25>SAT</td></tr>' +
+                     '<tr><td width=32>&nbsp;</td></tr><tr><td>&nbsp;</td>');
+    document.writeln('<td class="sat_label_text" width=4em align=center>Best Sitting (UC)</td>' +
+                     '<td class="sat_label_text" width=4em align=center>Best Overall (CSU)</td>' +
+                     '<td width=48>&nbsp;</td></tr><tr>');
+    document.writeln('<td class="sat_label_text" align="right">' +
+                     'Reading:</td>' +
+                     '<td align=center><input type=text id="sat_sit_read" value="0" ' +
+                     'class="sat_score_text" size=4 ' +
+                     'onChange="A2GCalc.update_sat();"></td>' +
+                     '<td align=center><input type=text id="sat_best_read" value="0" ' +
+                     'class="sat_score_text" size=4 ' +
+                     'onChange="A2GCalc.update_sat();"></td>' +
+                     '</tr><tr>');
+    document.writeln('<td class="sat_label_text" align="right">' +
+                     'Math:</td>' +
+                     '<td align=center><input type=text id="sat_sit_math" value="0" ' +
+                     'class="sat_score_text" size=4 ' +
+                     'onChange="A2GCalc.update_sat();"></td>' +
+                     '<td align=center><input type=text id="sat_best_math" value="0" ' +
+                     'class="sat_score_text" size=4 ' +
+                     'onChange="A2GCalc.update_sat();"></td>' +
+                     '</tr><tr>');
+    document.writeln('<td class="sat_label_text" align="right">' +
+                     'Writing:</td>' +
+                     '<td align=center><input type=text id="sat_sit_write" value="0" ' +
+                     'class="sat_score_text" size=4 ' +
+                     'onChange="A2GCalc.update_sat();"></td>' +
+                     '</tr></table></td>');
+    document.writeln("</tr></table>");
   };
   that.document_write_transcript = document_write_transcript;
   
@@ -866,4 +947,4 @@ var A2GTranscript = function () {
 // A single global A2GTranscript variable to store the entire app.
 // Only the public interface methods may be used in the HTML code.
 //
-var GPACalc = A2GTranscript();
+var A2GCalc = A2GTranscript();

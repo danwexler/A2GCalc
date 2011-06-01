@@ -9,15 +9,21 @@
   .dark_red_background { background-color:#EDDDDD; }
   .light_green_background { background-color:#EEFEEE; }
   .dark_green_background { background-color:#DDEDDD; }
-  .a2g_category_heading { background-color:#999977; }
+  .a2g_category_heading { background-color:#999977; font: bold 11pt arial; color:#FFFFFF; align=center; }
   /* course text coloring affecting GPA calc */
   .extra_point_course_text { color:#00A000; }
   .failed_course_text { font: 12pt arial; color:#A00000; }
   .ignored_course_text { font: 12pt arial; color:#A0A000; }
   .linked_course_text { font: 12pt arial; color:#00A0A0; }
   .standard_course_text { font: 12pt arial; color:#000000; }
-  .gpa_text { font: 12pt arial; background-color:#F0F0F0; color:#0000FF; }
+  .score_gray_text { font: 12pt arial; background-color:#F0F0F0; }
+  .score_red_text { font: 12pt arial; background-color:#F0D0D0; }
+  .score_yellow_text { font: 12pt arial; background-color:#F0F0D0; }
+  .score_green_text { font: 12pt arial; background-color:#D0F0D0; }
   .gpa_label_text { font: 9pt arial; }
+  .sat_text { font: bold 12pt arial; }
+  .sat_label_text { font: 9pt arial; }
+  .sat_score_text { font: bold 9pt arial; }
   .move2g_text { font:bold 10pt arial; color:#00AA00; vertical-align:top; text-decoration: none; }
   .error_text { font: 12pt arial; color:#F00000; }
   .warning_text { font: 12pt arial; color:#F0F000; }
@@ -126,12 +132,28 @@ body { font:12pt arial; }
 --></style>
 <script language="JavaScript" src="a2g.js"></script>
 </head>
-<body onLoad="GPACalc.init();">
+<body onLoad="A2GCalc.init();">
 <div style="clear:both"></div>
-<table cellspacing=5>
+<table>
+  <tr>
+    <td><strong>GPA:</strong></td>
+    <td class="gpa_label_text">unweighted&nbsp;=</td>
+    <td id="unweighted_gpa" class="score_gray_text" width=4>0</td>
+    <td class="gpa_label_text">weighted&nbsp;=</td>
+    <td id="weighted_gpa" class="score_red_text" width=4>0</td>
+    <td class="gpa_label_text">weighted & capped&nbsp;=</td>
+    <td id="weighted_capped_gpa" class="score_red_text" width=4>0</td>
+    <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;UC Score:</strong></td>
+    <td id="uc_score" class="score_red_text" width=4>0</td>
+    <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;CSU EI:</strong></td>
+    <td id="csu_index" class="score_red_text" width=4>0</td>
+  </tr>
+</table>
+<script>A2GCalc.document_write_transcript();</script>
+<table>
   <tr>
     <td>Freshman year:
-      <select id="freshman_year" onChange="GPACalc.update_curriculum();">
+      <select id="freshman_year" onChange="A2GCalc.update_curriculum();">
         <option>2011</option>
         <option>2010</option>
         <option>2009</option>
@@ -143,30 +165,16 @@ body { font:12pt arial; }
         <option>2003</option>
       </select>
     </td>
+    <td width=8>&nbsp;</td>
     <td>
-      <select id="school_name" onChange="GPACalc.updatate_curriculum();">
+      <select id="school_name" onChange="A2GCalc.updatate_curriculum();">
         <option>Tahoe Truckee HS</option>
         <option>North Tahoe HS</option>
       </select>
     </td>
+    <td id="class_error" class="error_text">&nbsp;</td>
   </tr>
 </table>  
-<table>
-  <tr>
-    <td><strong>GPA:</strong></td>
-    <td class="gpa_label_text">unweighted&nbsp;=</td>
-    <td id="unweighted_gpa" class="gpa_text" width=4>0</td>
-    <td class="gpa_label_text">weighted&nbsp;=</td>
-    <td id="weighted_gpa" class="gpa_text" width=4>0</td>
-    <td class="gpa_label_text">weighted & capped&nbsp;=</td>
-    <td id="weighted_capped_gpa" class="gpa_text" width=4>0</td>
-    <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;NCAA:</strong></td>
-    <td id="ncaa_eligible" class="gpa_text" width=4>No</td>
-  </tr>
-</table>
-<script>GPACalc.document_write_transcript();</script>
-<span id="class_error" class="error_text">&nbsp;</span>
-<br></br>
 <table>
   <tr><td><strong>Key:&nbsp;&nbsp;</strong></td><td class="light_red_background">Incomplete a-g subject requirement.</td></tr>
   <tr><td></td><td class="light_green_background">Completed a-g subject requirement.</td></tr>
@@ -174,6 +182,6 @@ body { font:12pt arial; }
   <tr><td></td><td class="failed_course_text">Course with D or lower grade affects GPA but does not qualify for a-g requirement.</td></tr>
   <tr><td></td><td class="ignored_course_text">Either a freshman course or repeated later with a grade of C or better.</td></tr>
   <tr><td></td><td class="linked_course_text">Linked course earns grade of final course in series.</td></tr>  
-  </table>
+</table>
 </body>
 </html>
